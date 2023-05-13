@@ -17,7 +17,7 @@ model = model_from_json(open("model.json", "r").read())
 model.load_weights('best_model.h5')
 face_haar_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
 
-cap=cv2.VideoCapture(1) # start webcam
+cap=cv2.VideoCapture(0) # start webcam
 
 while True:
     (valid,test_image)=cap.read() #reading image from video frame
