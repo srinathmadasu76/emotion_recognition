@@ -3,3 +3,4 @@ opencv-python
 keras >= 2.12.0
 Keras-Preprocessing == 1.1.2
 streamlit_webrtc==0.20.0
+PyQt6==6.3.1
