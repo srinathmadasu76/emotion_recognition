@@ -18,9 +18,12 @@ model.load_weights('best_model.h5')
 face_haar_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
 
 cap=cv2.VideoCapture('mixkit-girl-dancing-happy-at-home-8752-medium.mp4') # start webcam
+#video_file = open('mixkit-girl-dancing-happy-at-home-8752-medium.mp4', 'rb')
+
 
 while True:
     (valid,test_image)=cap.read() #reading image from video frame
+    #test_image = video_file.read()
     if not valid: #if not getting frames then exit
         break
 
@@ -49,8 +52,8 @@ while True:
 
 
         resize_image = cv2.resize(test_image, (1000, 700)) #enhancing the image to display
-        cv2.imshow('Emotion Dectector',resize_image)
-       
+        #cv2.imshow('Emotion Dectector',resize_image)
+        st.video(resize_image, caption='Emotion Dectector')
         if cv2.waitKey(10) & 0xFF==ord("q"):
             break
 cap.release()
