@@ -53,7 +53,7 @@ while True:
 
         resize_image = cv2.resize(test_image, (1000, 700)) #enhancing the image to display
         #cv2.imshow('Emotion Dectector',resize_image)
-        st.video(resize_image, caption='Emotion Dectector')
+        st.video(resize_image)
         if cv2.waitKey(10) & 0xFF==ord("q"):
             break
 cap.release()
