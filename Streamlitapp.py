@@ -6,10 +6,10 @@ Created on Fri May 12 10:33:10 2023
 """
 
 import streamlit as st
-import tensorflow as tf
+
 st.header('Emotion Recognition - Moodme')   
 
-from tf.keras.models import model_from_json
+from tensorflow.keras.models import model_from_json
 import cv2
 from keras_preprocessing.image import img_to_array
 import numpy as np
