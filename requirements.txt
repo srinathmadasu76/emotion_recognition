@@ -1,0 +1,4 @@
+tensorflow==2.6.0
+opencv-python == 4.7.0.72
+numpy == 1.19.5
+keras == 2.6.0
