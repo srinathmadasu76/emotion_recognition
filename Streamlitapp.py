@@ -6,7 +6,7 @@ Created on Fri May 12 10:33:10 2023
 """
 
 import streamlit as st
-
+import tempfile
 st.header('Emotion Recognition - Moodme')   
 
 from tensorflow.keras.models import model_from_json
@@ -16,12 +16,19 @@ import numpy as np
 model = model_from_json(open("model.json", "r").read())
 model.load_weights('best_model.h5')
 face_haar_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
+f = st.file_uploader("Upload file")
+
+tfile = tempfile.NamedTemporaryFile(delete=False) 
+if f is not None: 
+    tfile.write(f.read())
 
 cap=cv2.VideoCapture('mixkit-girl-dancing-happy-at-home-8752-medium.mp4') # start webcam
+cap=cv2.VideoCapture(tfile.name) 
+stframe = st.empty()
 #video_file = open('mixkit-girl-dancing-happy-at-home-8752-medium.mp4', 'rb')
 
 
-while True:
+while True and cap.isOpened():
     (valid,test_image)=cap.read() #reading image from video frame
     #test_image = video_file.read()
     if not valid: #if not getting frames then exit
